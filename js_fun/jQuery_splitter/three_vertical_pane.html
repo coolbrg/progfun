@@ -28,17 +28,44 @@
     </div>
 
     <script type="text/javascript">
-      var main_div_width = 800;
-      $('#main_div').width(800).height(500).split({
-        orientation: 'vertical',
-        limit: 3,
-        position: '67%'
+      function resizeClassView(){
+        var main_div_width, left_pane_width, right_pane_width,
+            first_left_pane_width, second_left_pane_width, left_splitter, right_splitter;
+
+        main_div_width = $(window).width() - 72;
+        left_pane_width = (0.67 * main_div_width);
+        right_pane_width = main_div_width - left_pane_width;
+        first_left_pane_width = (0.5 * left_pane_width);
+        second_left_pane_width = (left_pane_width - first_left_pane_width);
+        left_splitter = $($('.vsplitter')[0]);
+        right_splitter = $($('.vsplitter')[1]);
+        $('#main_div').width(main_div_width + 'px');
+        $('#left_pane').width(left_pane_width - 2 + 'px');
+        $('#first_left_pane').width(first_left_pane_width - 5 + 'px');
+        $('#second_left_pane').width(second_left_pane_width + 'px');
+        $('#right_pane').width(right_pane_width + 'px');
+        left_splitter.css('left', first_left_pane_width - 7 + 'px');
+        right_splitter.css('left', left_pane_width - 5 + 'px');
+      }
+
+      $(document).ready(function(){
+        var main_div_width = '100%';
+        $('#main_div').width(main_div_width).height(500).split({
+          orientation: 'vertical',
+          limit: 3,
+          position: '67%'
+        });
+        $('#left_pane').width($('#left_pane').width()).height(500).split({
+          orientation: 'vertical',
+          limit: 3,
+          position: '50%'
+        });
+
+        $(window).resize(function() {
+          resizeClassView();
+        });
       });
-      $('#left_pane').width($('#left_pane').width()).height(500).split({
-        orientation: 'vertical',
-        limit: 3,
-        position: '50%'
-      });
+
     </script>
   </body>
 </html>
