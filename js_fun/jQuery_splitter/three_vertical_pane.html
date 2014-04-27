@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Three Vertical Pane Demo</title>
+    <script type='text/javascript' src='../lib/js/jquery-1.9.0.min.js'></script>
+    <script type='text/javascript' src='../lib/js/jquery.splitter-0.14.0.js'></script>
+    <link rel='stylesheet' type='text/css' href='../lib/css/jquery.splitter.css'>
+    <link rel='stylesheet' type='text/css' href='../lib/css/three_vertical_pane.css'>
+  </head>
+  <body>
+    <h2><a href='https://github.com/jcubic/jquery.splitter' target='_blank'>jQuery Splitter</a> - Three Vertical Pane</h2>
+    <hr>
+
+    <div id='main_div'>
+      <div id='left_pane'>
+        <div id='first_left_pane'>
+          <b>jQuery</b> is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. It was released in January 2006 at BarCamp NYC by John Resig. It is currently developed by a team of developers led by Dave Methvin. Used by over 80% of the 10,000 most visited websites, jQuery is the most popular JavaScript library in use today. jQuery is free, open source software, licensed under the MIT License. jQuery's syntax is designed to make it easier to navigate a document, select DOM elements, create animations, handle events, and develop Ajax applications. jQuery also provides capabilities for developers to create plug-ins on top of the JavaScript library.
+        </div>
+        <div id='second_left_pane'>
+          <b>jQuery UI</b> is a JavaScript library that provides abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets, built on top of the jQuery JavaScript library, that can be used to build interactive web applications. It was released in September 2007, announced in a blog post by John Resig on jquery.com. The latest release, 1.10.4, requires jQuery 1.6 or later.
+        </div>
+      </div>
+      <div id='right_pane'>
+        <b>HTML</b> or HyperText Markup Language is the standard markup language used to create web pages.
+        HTML is written in the form of HTML elements consisting of tags enclosed in angle brackets (like &lt;html&gt;). HTML tags most commonly come in pairs like &lt;h1&gt; and &lt;/h1&gt;, although some tags represent empty elements and so are unpaired, for example &lt;img&gt;. The first tag in a pair is the start tag, and the second tag is the end tag (they are also called opening tags and closing tags).
+        The purpose of a web browser is to read HTML documents and compose them into visible or audible web pages. The browser does not display the HTML tags, but uses the tags to interpret the content of the page. HTML describes the structure of a website semantically along with cues for presentation, making it a markup language rather than a programming language.
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var main_div_width = 800;
+      $('#main_div').width(800).height(500).split({
+        orientation: 'vertical',
+        limit: 3,
+        position: '67%'
+      });
+      $('#left_pane').width($('#left_pane').width()).height(500).split({
+        orientation: 'vertical',
+        limit: 3,
+        position: '50%'
+      });
+    </script>
+  </body>
+</html>

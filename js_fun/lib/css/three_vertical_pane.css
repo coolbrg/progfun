@@ -1,0 +1,27 @@
+body {
+  background-color: white;
+}
+
+.splitter_panel .vsplitter {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px !important;
+  background-color: gray;
+  cursor: ew-resize;
+  line-height: 15px;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.splitter_panel .vsplitter:before {
+  content: ' *  *  * ';
+  color: white;
+  position: absolute;
+  top: 50%;
+}
+
+#main_div {
+  border: solid 1px;
+}
