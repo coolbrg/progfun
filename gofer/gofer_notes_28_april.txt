@@ -1,0 +1,20 @@
+- speed d t = d / t   =  speed d t = (/) d t
+- :t - to check type of any expression
+- Type Inference - Gofer has advanced type system and automatically try to
+  detect type of variable if not mentioned
+
+- function
+  fact x
+    | x <  2 = 1
+    | otherwise = x * fact(x - 1)
+
+- fibonacci series and 'where' keyword to create local binding
+  fib x
+    | x == 0 = 1
+    | x == 1 = 1
+    | otherwise = first + second
+      where first = fib(x - 1)
+      second = fib(x - 2)
+- speed = (/)  means speed is new label that is given to function already defined by operator '/'
+- Gofer has lazy evaluation. It means expression is not evaluated until it is used
+- In Gofer, every function is partial function

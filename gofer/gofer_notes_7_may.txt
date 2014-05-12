@@ -1,0 +1,59 @@
+- Order:
+x = 10 : Int   so x is 0th order function
+
+- Higher order function : Any function whose return type is function is higher order function.
+
+- Find Smallest square for number
+  inner c lim
+    | c^2 > lim = c
+    | otherwise = inner (c+1) lim
+
+  smallest_sq lim = inner 1 lim
+  or
+   smallest_sq = inner 1
+
+-------------------
+
+- inner as local entity
+  sm_sq lim = inner 1
+    where inner c
+      | c^2 > lim = c
+      | otherwise = inner (c+1)
+
+
+- Gofer uses TCO (Tail Call Optimization).
+- Other languages like scheme, scala, haskel, ruby (need to set 1 and recompile),
+  python using functional module
+- Iterative Vs Recursive
+
+//========================================================================
+Exercises:
+
+1) Write factorial as iterative process.
+2) Implement multiplication using addition.
+
+Answer:
+1) Factorial as Iterative Process
+  fact n = cal_fact 1 n
+    where
+      cal_fact sum n
+        | n < 2 = sum
+        | otherwise = cal_fact (sum * n) (n - 1)
+
+2) Multiplication using addition
+
+  Using Iterative Process:
+
+  mul a b = cal_mul a b 1
+    where
+      cal_mul sum b counter
+        | counter == b = sum
+        | otherwise = cal_mul (sum + a) b (counter + 1)
+
+  Using Recursive Process:
+
+  mul a b = cal_mul b 1
+    where
+      cal_mul b counter
+        | counter == b = a
+        | otherwise = a + cal_mul b (counter + 1)
