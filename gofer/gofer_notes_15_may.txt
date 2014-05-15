@@ -1,0 +1,34 @@
+- Finding gcd of two numbers
+
+    cal_gcd a b
+      | b == 0 = a
+      | otherwise = cal_gcd b (mod a b)
+
+- Calculating square root using Newton's Method:
+  cal_sqrt delta x = iter x initial_guess
+    where
+      iter x y
+        | good_enough x y = y
+        | otherwise = iter x (next_guess y)
+      initial_guess = x / 2.0
+      good_enough y = abs (y^2 - x) < delta
+      next_guess y = (y + x/y) / 2.0
+
+  cal_sqrt1 = cal_sqrt 0.001
+
+- Extracting patterns
+
+-- Pattern :
+
+till pred next value
+  | pred value = value
+  | otherwise = till pred next (next value)
+
+-- Smallest Integer:
+sm_sq limit = till (\x -> (x^2) > limit) (\x -> x + 1) 1
+
+-- Square Root:
+mysqrt delta x = till (\y -> abs (y^2 -x) < delta) (\y -> (y + x/y) / 2.0) (x / 2.0)
+
+- lib/pusimple to find  all implementations
+
