@@ -1,0 +1,36 @@
+# Two operators associated with List type
+1) :: :- Constructor for list
+2) [] :- Also consider as constructor
+
+# Recursive Vs Iterative:
+If you lose the previous history, and still process is complete then it is iterative
+otherwise it is recursive process.
+
+head' (x::xs) = x
+tail' (x::xs) = xs
+
+-- pattern matching
+last' (x::[]) = x
+last' (x::xs) = last' xs
+
+init' (x::[]) = []
+init' (x::xs) = x::init'(xs)
+
+# ++ :- Concatenation Operator
+
+# Find reverse of list
+reverse' (x::[]) = [x]
+reverse' (x::xs) = reverse' (xs) ++ [x]
+
+# List Comprehension
+perims max = [(a, b, c) | a <- enumFromTo 1 max, b <- enumFromTo 1 max, c <- enumFromTo 1 max, a^2 + b^2 == c^2]
+
+# ints = enumFrom 1 (Get integer from 1 to infinite)
+
+# Assignments
+Homeworks:
+1 Iterative version of reverse
+2. Take, Drop, Length, Min, Max
+
+length = reduce (+1) 0 [some list]
+

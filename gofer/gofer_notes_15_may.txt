@@ -32,3 +32,13 @@ mysqrt delta x = till (\y -> abs (y^2 -x) < delta) (\y -> (y + x/y) / 2.0) (x / 
 
 - lib/pusimple to find  all implementations
 
+- Assignemnts: Implement following in any of your favourite languge.
+1. Factorial - Recursive and iterative​
+2. Multiplication using addition - iterative and recursive
+3. gcd using Euler's equation
+4. Square root by Newton's successive approximation method
+
+Note: Try to implement these like you do in gofer i.e. without modifying the value of
+any variable (you can assign to it once). Note the difficulties you face.
+Is it possible to implement some of these without (re)assignment?
+If not, what is the minimum assignment you need to do to implement the above?
