@@ -15,7 +15,7 @@ end
 
 # 2. Multiplication using addition - Iterative Way
 def mul_iter(a, b, count = 1)
-  b.downto(a).each {|e| a +a }
+  b.downto(1).each {|e| a +a }
   sum = a if
   count == b ? a : mul_iter(sum + a, b, count + 1)
 end

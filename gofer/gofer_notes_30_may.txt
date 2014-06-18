@@ -30,6 +30,12 @@ perims max = [(a, b, c) | a <- enumFromTo 1 max, b <- enumFromTo 1 max, c <- enu
 # Assignments
 Homeworks:
 1 Iterative version of reverse
+
+  reverse_iter (x::xs) = cal_reverse xs [x]
+    where
+      cal_reverse [] acc = acc
+      cal_reverse (x::xs) acc = cal_reverse xs (x::acc)
+
 2. Take, Drop, Length, Min, Max
 
 length = reduce (+1) 0 [some list]

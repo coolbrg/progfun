@@ -1,0 +1,55 @@
+- Defining map function:
+map' _ [] = []
+map' f (x::xs) = (f x) :: (map' f xs)
+
+-- Reduce Function
+reduce' f a [] = a
+reduce' f a (x::xs) = reduce' f (f a x) xs
+
+sum' = reduce' (\a v -> a + v) 0
+
+-- Filter Function
+-- Type: (a -> Bool) -> [a] -> [a]
+filter' _ [] = []
+filter' f (x::xs)
+  | f x = x :: (filter' f xs)
+  | otherwise = filter' f xs
+
+-- Defining your own types
+In C, one can create new structure as:
+  struct point {
+    double x, y;
+  };
+
+-- Define new datatype
+  typedef struct point Point;
+
+-- Equivalent of typedef in Gofer
+  type Point = (Float, Float)
+
+-- New data structure and define type in Gofer
+  data Point = Pt Float Float
+
+-- type Point = (Float, Float)
+-- Pt f1 f2 = (f1, f2)
+-- Both above equivalent to data Point = Pt Float Float
+
+data Point = Pt Float Float
+distance (Pt x1 y1) (Pt x2 y2) = sqrt ((sq_diff x1 x2) + (sq_diff y1 y2))
+  where sq_diff x y = (x - y)^2
+
+vec_sum (Pt x1 y1) (Pt x2 y2) = Pt (x1 + x2) (y1 + y2)
+vec_mag (Pt x y) = sqrt (x^2 + y^2)
+
+-- lesser_vec (Pt x1 y1) (Pt x2 y2)
+--   | vec_mag (Pt x1 y1) < vec_mag (Pt x2 y2) = (Pt x1 y1)
+--   | otherwise = (Pt x2 y2)
+
+-- or Equivalent
+lesser_vec p1@(Pt x1 y1) p2@(Pt x2 y2)
+  | vec_mag p1 < vec_mag p2 = (Pt (x1+10.0) (y1+10.0))
+  | otherwise = (Pt (x2+10.0) (y2+10.0))
+
+toF = primIntToFloat
+
+vals = [Pt x y | x<-(map toF (enumFromTo 1 20)), y<-(map toF (enumFromTo 1 20)), vec_mag(Pt x y) < 100.0]

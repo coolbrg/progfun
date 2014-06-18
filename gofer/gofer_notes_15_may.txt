@@ -11,7 +11,7 @@
         | good_enough x y = y
         | otherwise = iter x (next_guess y)
       initial_guess = x / 2.0
-      good_enough y = abs (y^2 - x) < delta
+      good_enough x y = abs (y^2 - x) < delta
       next_guess y = (y + x/y) / 2.0
 
   cal_sqrt1 = cal_sqrt 0.001
