@@ -20,11 +20,11 @@ def next_guess(a, n)
 end
 
 def iter(n, guess, delta)
-  return guess if good_enough? (guess, n, delta)
+  return guess if good_enough?(guess, n, delta)
   iter n, next_guess(guess, n), delta
 end
 
 def cal_sqrt(n, delta = 0.001)
   iter n, n / 2.0, delta
 end
-cal_sqrt(16)
+puts "Square root of 16 is: #{cal_sqrt(16)}"
