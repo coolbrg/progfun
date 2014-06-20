@@ -20,7 +20,7 @@ def next_guess(a, n)
 end
 
 def iter(n, guess, delta)
-  return guess if good_enough?(guess, n, delta)
+  return guess if good_enough? (guess, n, delta)
   iter n, next_guess(guess, n), delta
 end
 
