@@ -1,14 +1,16 @@
 # Calculating square root using Newton-Raphson's Method:
 
+=begin
 # 1st Approach
-# def cal_sqrt(n, delta = 0.001)
-#   guess = n / 2.0
-#   until (guess**2 - n).abs < delta
-#     guess = (guess + n/guess) / 2.0
-#   end
-#   guess
-# end
-# cal_sqrt(16)
+def cal_sqrt(n, delta = 0.001)
+  guess = n / 2.0
+  until (guess**2 - n).abs < delta
+    guess = (guess + n/guess) / 2.0
+  end
+  guess
+end
+cal_sqrt(16)
+=end
 
 # 2nd Approach
 =begin
