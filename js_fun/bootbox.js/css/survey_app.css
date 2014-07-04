@@ -1,3 +1,38 @@
 input {
   height: 30px !important;
 }
+
+.survey_panel {
+  padding: 20px 30px 0px 30px;
+  width: 50%;
+}
+.survery_result_caption {
+  font-size: 35px;
+  text-align: center;
+  background: #FFDF37;
+  padding: 20px;
+  font-weight: bold;
+}
+#survey_results {
+  font-size: 20px;
+}
+.table_header {
+  background: #000;
+  color: #FFF;
+}
+tr:nth-child(even) {
+  background: #FA7F92;
+}
+tr:nth-child(odd):not(.table_header) {
+  background: #90C4D1;
+}
+th, td {
+  text-align: center;
+}
+.modal-header {
+  padding: 10px 10px 10px 10px;
+  background-color: #971152;
+  border-bottom: 1px solid #ddd;
+  border-radius: 4px 4px 0px 0px;
+  color: #FFF;
+}

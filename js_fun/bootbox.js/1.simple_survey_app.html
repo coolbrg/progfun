@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Bootbox - Simple Survery App</title>
@@ -12,9 +13,26 @@
   <body>
     <button id='start_survey' class='btn btn-success'>Start Survery</button>
     <div class='survey_panel hide'>
-      <h3>Survey Results</h3>
-      <hr>
-      <ol id='survey_results'></ol>
+      <div class='survery_result_caption'>Survey Results</div>
+      <div id='survey_results'></div>
     </div>
   </body>
+
+  <script type="text/template" id="survey_template">
+    <table class='table'>
+      <thead>
+        <tr class='table_header'>
+          <th>Survey Kind</th><th>Your Response</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.each(surveys, function(survey_response, survey_question_kind){ %>
+          <tr>
+            <td><%- survey_question_kind %></td>
+            <td><%- survey_response %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </script>
 </html>
