@@ -1,4 +1,4 @@
-progfun
+Progfun
 =======
 
-Programming for fun
+The repository having program snippets for fun. :)
