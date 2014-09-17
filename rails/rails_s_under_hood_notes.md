@@ -3,7 +3,7 @@
 2. Rack acts as middleware.
 
 3. You can see its middleware as:
-<pre>
+   ```ruby
 $> rake middleware
 use Rack::Sendfile
 use ActionDispatch::Static
@@ -29,7 +29,8 @@ use Rack::Head
 use Rack::ConditionalGet
 use Rack::ETag
 run Blog::Application.routes
-</pre>
+    ```
+
 4. When you execute `rails server`
   * A `Rack::Server` object is created and attached to the Web Server
    (WEBrick by default), and the middleware components are loaded up.
