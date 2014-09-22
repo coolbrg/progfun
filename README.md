@@ -1,4 +1,4 @@
 Progfun
 =======
 
-The repository having program snippets for fun. :)
+The repository having program snippets for fun. :smile:
