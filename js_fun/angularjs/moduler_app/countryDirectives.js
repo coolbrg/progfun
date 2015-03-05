@@ -1,6 +1,4 @@
-var countryDirectives = angular.module('countryDirectives', []);
-
-countryDirectives.directive('country', function() {
+angular.module('countryDirectives', []).directive('country', function() {
   return {
     scope: {
       country: '='

@@ -1,6 +1,4 @@
-var countryFactories = angular.module('countryFactories', []);
-
-countryFactories.factory('countries', function($http){
+angular.module('countryFactories', []).factory('countries', function($http){
   return {
     list: function(callback) {
       $http({
