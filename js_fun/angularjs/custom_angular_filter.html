@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app='countryApp'>
+  <head>
+    <script src="../lib/js/angular.min.js"></script>
+    <script src="../lib/js/angular-route.min.js"></script>
+    <meta charset="utf-8">
+    <title>AngularJS - Route Demo</title>
+    <script>
+      var countryApp = angular.module('countryApp', ['ngRoute']);
+
+      countryApp.config(function($routeProvider) {
+        $routeProvider.
+          when('/', {
+            templateUrl: 'templates/country-list.html',
+            controller: 'CountryListCtrl'
+          }).
+          when('/:countryName', {
+            templateUrl: 'templates/country-detail.html',
+            controller: 'CountryDetailCtrl'
+          }).
+          otherwise({
+            redirecTo: '/'
+          });
+      });
+
+      // factory
+      countryApp.factory('countries', function($http){
+        function getData(callback) {
+          $http({
+            method: 'GET',
+            url: 'countries.json',
+            cache: true
+          }).success(callback);
+        }
+
+        return {
+          list: getData,
+          find: function(name, callback){
+            getData(function(data) {
+              var country = data.filter(function(entry){
+                return entry.name === name;
+              })[0];
+              callback(country);
+            });
+          }
+        }
+      });
+
+      countryApp.controller('CountryListCtrl', function ($scope, countries){
+        countries.list(function(countries) {
+          $scope.countries = countries;
+        });
+      });
+
+      countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, countries){
+        countries.find($routeParams.countryName, function(country) {
+          $scope.country = country;
+        });
+      });
+
+      countryApp.filter('encodeURI', function() {
+        return window.encodeURI;
+      });
+    </script>
+  </head>
+  <body ng-controller='CountryListCtrl'>
+    <div ng-view></div>
+  </body>
+</html>
