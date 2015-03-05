@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app='countryApp'>
+<head>
+  <script src="../lib/js/angular.min.js"></script>
+  <script src="../lib/js/angular-route.min.js"></script>
+  <meta charset="utf-8">
+  <title>AngularJS - Table Demo</title>
+  <script>
+    var countryApp = angular.module('countryApp', ['ngRoute']);
+
+    countryApp.config(function($routeProvider) {
+      $routeProvider.
+        when('/', {
+          templateUrl: 'templates/country-list.html',
+          controller: 'CountryListCtrl'
+        }).
+        when('/:countryName', {
+          templateUrl: 'templates/country-detail.html',
+          controller: 'CountryDetailCtrl'
+        }).
+        otherwise({
+          redirecTo: '/'
+        });
+    });
+
+    countryApp.controller('CountryListCtrl', function ($scope, $http){
+      $http.get('countries.json').success(function(data) {
+        $scope.countries = data;
+      });
+    });
+
+    countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams){
+      console.log($routeParams);
+    });
+  </script>
+</head>
+<body ng-controller='CountryListCtrl'>
+  <div ng-view></div>
+</body>
+</html>
