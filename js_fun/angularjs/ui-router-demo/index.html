@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="uiRouterExample">
+  <head>
+    <link href="../lib/foundation.css" rel="stylesheet" type="text/css" />
+    <script src="../lib/lodash.js"></script>
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h4>
+        A brief introduction to <strong class="text-danger">ui-router</strong>
+        <span class="text-muted">(v0.2.0)</span>
+      </h4>
+      <div>
+        <ul class="nav nav-pills">
+          <li><a ui-sref="home">Home</a></li>
+          <li><a ui-sref="list">Shopping List</a></li>
+        </ul>
+      </div>
+      <div ui-view></div>
+    </div>
+  </body>
+</html>
