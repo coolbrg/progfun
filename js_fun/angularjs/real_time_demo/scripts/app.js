@@ -1,6 +1,8 @@
 var app = angular.module('myApp', [
-  'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch'
+  'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'firebase'
 ]);
+
+app.constant('FIREBASE_URL', 'https://dazzling-fire-5588.firebaseio.com/');
 
 app.config(function($routeProvider) {
   $routeProvider
@@ -9,3 +11,4 @@ app.config(function($routeProvider) {
       controller: 'PostsCtrl'
     });
 });
+
