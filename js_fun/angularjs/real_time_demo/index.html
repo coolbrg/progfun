@@ -20,13 +20,13 @@
     <script src="scripts/controllers/posts.js"></script>
     <script src="scripts/services/post.js"></script>
     <script src="scripts/controllers/postview.js"></script>
+    <script src="scripts/controllers/nav.js"></script>
 
     <meta charset="utf-8">
     <title>AngularJS - Real Time Demo</title>
   </head>
   <body>
-    <div class="container">
-      <div ng-view=""></div>
-    </div>
+    <div ng-include="'views/nav.html'"></div>
+    <div class="container" ng-view=""></div>
   </body>
 </html>
