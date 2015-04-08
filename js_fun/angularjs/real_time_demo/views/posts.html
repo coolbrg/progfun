@@ -3,10 +3,10 @@
     <div class="col-xs-1">
     </div>
     <div class="col-md-9 col-xs-11">
-      <div class="info">
+     <div class="info">
         <a ng-href="{{ post.url }}">
           {{ post.title }}
-          <span class="url">({{ post.url }})</span>
+          <span class="url">({{ post.url | hostnameFromUrl}})</span>
         </a>
       </div>
       <div>
