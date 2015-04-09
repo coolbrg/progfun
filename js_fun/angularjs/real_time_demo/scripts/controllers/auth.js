@@ -1,4 +1,6 @@
 app.controller('AuthCtrl', function ($scope, $location, Auth, user) {
+  console.log('in AuthCtrl');
+  console.log(user);
   if (user) {
     $location.path('/');
   }
@@ -12,8 +14,11 @@ app.controller('AuthCtrl', function ($scope, $location, Auth, user) {
   };
 
   $scope.register = function () {
-    Auth.register($scope.user).then(function() {
+    Auth.register($scope.user).then(function(user) {
       return Auth.login($scope.user).then(function() {
+        user.username = $scope.user.username;
+        return Auth.createProfile(user);
+      }).then(function() {
         $location.path('/');
       });
     }, function(error) {
