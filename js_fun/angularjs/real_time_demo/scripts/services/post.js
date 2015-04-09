@@ -1,6 +1,6 @@
-app.factory('Post', function ($firebaseArray, $firebaseObject, FIREBASE_URL) {
+app.factory('Post', function ($firebase, FIREBASE_URL) {
   var ref = new Firebase(FIREBASE_URL);
-  var posts = $firebaseArray(ref.child('posts'));
+  var posts = $firebase(ref.child('posts')).$asArray();
 
   var Post = {
     all: posts,
@@ -8,7 +8,7 @@ app.factory('Post', function ($firebaseArray, $firebaseObject, FIREBASE_URL) {
       return posts.$add(post);
     },
     get: function (postId) {
-      return $firebaseObject(ref.child('posts').child(postId));
+      return $firebase(ref.child('posts').child(postId)).$asObject();
     },
     delete: function (post) {
       return posts.$remove(post);
