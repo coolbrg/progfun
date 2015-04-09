@@ -32,6 +32,10 @@ app.config(function($routeProvider) {
         }
       }
     })
+    .when('/users/:userId', {
+      templateUrl: 'views/profile.html',
+      controller: 'ProfileCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });
