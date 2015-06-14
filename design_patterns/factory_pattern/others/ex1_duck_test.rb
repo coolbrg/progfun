@@ -1,9 +1,8 @@
-#!/usr/bin/env ruby
+require 'minitest/autorun'
 
-require 'test/unit'
-require 'ex1_duck'
+require './ex1_duck'
 
-class DuckTest < Test::Unit::TestCase
+class DuckTest < MiniTest::Test
   def test_duck
     d = Duck.new('fred')
     assert_equal 'fred', d.instance_variable_get(:@name)
