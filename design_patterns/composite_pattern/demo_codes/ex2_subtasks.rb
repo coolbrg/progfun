@@ -1,3 +1,4 @@
+require './ex1_task'
 require './ex2_composite_task'
 
 # Sub Task for Adding Dry Ingredients

@@ -1,3 +1,5 @@
+require './ex1_task'
+
 # Sub Task for Adding Dry Ingredients
 class AddDryIngredientsTask < Task
   def initialize
